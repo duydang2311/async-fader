@@ -18,7 +18,7 @@
 
 //------------------
 // Functions
-TextDrawFadeForPlayer(playerid, Text:text, from_color, to_color, type = TEXT_FADE, timer_interval = 50, update_rate = 2);
+Task:TextDrawFadeForPlayer(playerid, Text:text, from_color, to_color, type = TEXT_FADE, timer_interval = 50, update_rate = 2);
 TextDrawStopFadeForPlayer(playerid, Text:text, type = TEXT_FADE);
 Task:PlayerTextDrawFade(playerid, PlayerText:playertext, from_color, to_color, type = TEXT_FADE, timer_interval = 50, update_rate = 2);
 PlayerTextDrawStopFade(playerid, PlayerText:playertext, type = TEXT_FADE);
@@ -58,11 +58,11 @@ stock static HEX(&color, rr, gg, bb, aa) {
 
 stock Task:TextDrawFadeForPlayer(playerid, Text:text, from_color, to_color, type = TEXT_FADE, timer_interval = 50, update_rate = 2) {
 	if (playerid < 0 || playerid >= MAX_PLAYERS) {
-		return 0;
+		return Task:0;
 	}
 
 	if (text < Text:0 || text >= Text:MAX_TEXT_DRAWS) {
-	    return 0;
+	    return Task:0;
 	}
 
 	new idx = -1;
@@ -79,7 +79,7 @@ stock Task:TextDrawFadeForPlayer(playerid, Text:text, from_color, to_color, type
 	}
 
 	if (idx == -1) {
-		return -1;
+		return Task:0;
 	}
 
 	textDrawFader[playerid][idx][TEXTDRAW_FADE_VALID] = true;
@@ -98,7 +98,7 @@ stock Task:TextDrawFadeForPlayer(playerid, Text:text, from_color, to_color, type
 	textDrawFader[playerid][idx][TEXTDRAW_FADE_TASK] = task_new();
 	task_keep(textDrawFader[playerid][idx][TEXTDRAW_FADE_TASK]);
 
-	return 1;
+	return textDrawFader[playerid][idx][TEXTDRAW_FADE_TASK];
 }
 
 stock TextDrawStopFadeForPlayer(playerid, Text:text, type = TEXT_FADE) {
