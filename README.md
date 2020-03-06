@@ -49,6 +49,14 @@ in this section. If your library is passive and has no API, simply omit this
 section.
 -->
 
+```pawn
+await PlayerTextDrawFade(playerid, PlayerText:playertext, from_color, to_color, type = TEXT_FADE, timer_interval = 50, update_rate = 2);
+// code to run after the textdraw fading completes.
+
+await TextDrawFade(playerid, Text:text, from_color, to_color, type = TEXT_FADE, timer_interval = 50, update_rate = 2);
+// code to run after the textdraw fading completes.
+```
+
 ## Testing
 
 <!--
@@ -61,3 +69,8 @@ To test, simply run the package:
 ```bash
 sampctl package run
 ```
+
+## Credits
+
+Original script by GAMMIX
+Task adapted by me
