@@ -1,4 +1,9 @@
 // fader.inc by Gammix
+
+#if !defined _PawnPlus_included
+	#error PawnPlus is required.
+#endif
+
 #if defined fader_included
 	#endinput
 #endif

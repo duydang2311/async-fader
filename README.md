@@ -40,6 +40,10 @@ Include in your code and begin using the library:
 #include <Async-Fader>
 ```
 
+## Dependencies
+
+<https://github.com/IllidanS4/PawnPlus/>
+
 ## Usage
 
 <!--
@@ -73,4 +77,5 @@ sampctl package run
 ## Credits
 
 Original script by GAMMIX
-Task adapted by me
+
+PawnPlus adapted by me
